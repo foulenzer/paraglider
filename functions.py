@@ -45,11 +45,13 @@ def parseContent (reqcontent):
 		'action=',
 	]
 	generic_regex = re.compile( '|'.join( regex_list) )
-
-	for line in str(reqcontent).split("\n"):
-		if len(line) > 120:
+	try:
+		line_list = (reqcontent.decode(encoding='UTF-8')).splitlines()
+	except:
+		line_list = str(reqcontent).splitlines()
+	for line in line_list:
+		if len(line) > 1024:
 			continue
 		match = re.search(generic_regex, line)
 		if match:
 			print('[Found possible parameter]' + match.string.strip())
-
