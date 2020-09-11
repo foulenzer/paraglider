@@ -20,7 +20,7 @@ print('# Checking subject_list #')
 
 # get subject
 try:
-	subject_list = open(sys.argv[1], 'r').readlines()
+	subject_list = open(sys.argv[1], 'rb').readlines()
 except:
 	print('Sir, something is wrong with the subject argument. x(')
 else:
