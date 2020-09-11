@@ -46,7 +46,7 @@ def parseContent (reqcontent):
 	]
 	generic_regex = re.compile( '|'.join( regex_list) )
 
-	for line in reqcontent.split("\n"):
+	for line in str(reqcontent).split("\n"):
 		if len(line) > 120:
 			continue
 		match = re.search(generic_regex, line)
